@@ -1,16 +1,35 @@
 <?php
+//Basic Routes
+Route::get('/', function() {
+    return view('pages.home');
+});
+Route::get('/contact', function() {
+    return view('pages.contact');
+});
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
+//Product Appointments
+Route::get('/appointment/{productId}', 'AppointmentController@showForm');
+Route::post('/appointment/{productId}', 'AppointmentController@getForm');
 
-Route::get('/', function () {
-    return view('welcome');
+//Authentication routes
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+
+//Resources
+Route::get('admin/product/index', 'ProductController@adminIndex');
+Route::resource('product', 'ProductController');
+Route::get('admin/question/index', 'QuestionController@adminIndex');
+Route::resource('question', 'QuestionController');
+Route::resource('customer', 'CustomerController');
+
+//Protected Routes (Login required)
+Route::group(['middleware' => 'auth'], function()
+{
+    Route::get('auth/logout', function() {
+        Auth::logout();
+        return redirect('/');
+    });
+    Route::get('admin/dashboard', function() {
+        return view('adminPanel.home');
+    });
 });

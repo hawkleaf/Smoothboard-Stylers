@@ -1,0 +1,63 @@
+*
+    box-sizing: border-box
+
+a
+    color: inherit
+    text-decoration: none
+
+ul
+    margin: 0
+    padding: 0
+    list-style: none
+
+body
+    display: flex
+    flex-direction: column
+    min-height: 100vh
+    font-family: 'Droid Serif', serif
+
+.main
+    background: url(/../image/wave.jpg) no-repeat center center fixed
+    background-size: cover
+
+h1, h2, h3, h4
+    margin: 0
+
+.base__title
+    padding-top: .5em
+    padding-bottom: .5em
+
+.base__pageTitle
+    tile()
+
+.base__button
+    border: 0
+    cursor: pointer
+    &:hover
+        text-decoration: underline
+
+.base__bar
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    padding-left: 10%
+    padding-right: 10%
+    width: 100%
+    border-bottom: 1px solid grey
+    a
+        transition: all ease-in-out .3s
+        i
+            vertical-align: middle
+            padding-bottom: 3px
+    a:hover
+        text-decoration: underline
+        color: grey
+.base__header
+    tile()
+    display: flex
+    width: 100%
+    padding-left: .5em
+    padding-right: .5em
+    justify-content: space-between
+    align-items: center

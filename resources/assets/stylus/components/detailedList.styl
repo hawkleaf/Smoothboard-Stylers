@@ -1,0 +1,36 @@
+.detailedList__container
+    display: flex
+    flex-direction: column
+    flex: 1
+
+.detailedList__details
+    display: flex
+    box-shadow: 0px 1px 1px 0px grey
+    padding-top: .5em
+    padding-bottom: .5em
+    span
+        text-decoration: underline
+        font-weight: bold
+    .child
+        min-width: 20%
+    .child:first-child
+        padding-left: 1em
+
+.detailedList__item
+    display: flex
+    width: 100%
+    padding: 1em
+    border-bottom: 1px solid #ababab
+    color: #ababab
+    transition: all ease-in-out .3s
+    .child
+        min-width: 20%
+    &:hover
+        background-color: #f0f0f0
+    &--buttons
+        display: flex
+        margin-left: auto
+        .material-icons
+            margin-left: .5em
+            &:hover
+                color: black

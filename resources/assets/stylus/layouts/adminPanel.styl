@@ -1,0 +1,48 @@
+.adminPanel__header
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    padding-left: .5em
+    padding-right: .5em
+    align-items: center
+    color: white
+    background-color: #222
+    &--buttons
+        display: flex
+        color: #ababab
+    &--button
+        padding: 1em
+        transition: all ease-in-out .3s
+        i
+            font-size: 50px
+        &:hover
+            color: white
+
+.adminPanel__container
+    display: flex
+    flex-direction: row
+    flex: 1
+
+.adminPanel__nav
+    display: flex
+    flex-direction: column
+    flex: 1
+    background-color: #444
+    color: #ababab
+    &--item
+        display: flex
+        flex-direction: row
+        align-items: center
+        border-bottom: 1px solid #363636
+        padding: 1em
+        text-align: center
+        transition: all ease-in-out .3s
+        &:hover
+            color: white
+            background-color: #333232
+        span
+            margin-left: 1em
+
+.adminPanel__content
+    flex: 5
+    box-shadow: -2px 0px 5px 0px black
