@@ -36,4 +36,9 @@
             </p>
         </div>
     </div>
+    <div class="featured__container">
+        <div class="featured__col">
+            <h2 class="base__title">If you want to unsubscribe, click <a href="/customer/unsubscribe" style="text-decoration: underline" class="pjax">here</a></h2>
+        </div>
+    </div>
 @stop

@@ -20,6 +20,8 @@ Route::get('admin/product/index', 'ProductController@adminIndex');
 Route::resource('product', 'ProductController');
 Route::get('admin/question/index', 'QuestionController@adminIndex');
 Route::resource('question', 'QuestionController');
+Route::post('/customer/unsubscribe', 'CustomerController@destroy');
+Route::get('/customer/unsubscribe', 'CustomerController@unsubscribe');
 Route::resource('customer', 'CustomerController');
 
 //Protected Routes (Login required)

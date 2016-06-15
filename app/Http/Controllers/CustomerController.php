@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Customer;
 use App\Http\Requests;
+use Session;
 
 class CustomerController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['create', 'store', 'delete', 'destroy']]);
+        $this->middleware('auth', ['except' => ['create', 'store', 'unsubscribe', 'destroy']]);
     }
 
     public function create()
@@ -38,9 +39,23 @@ class CustomerController extends Controller
         return view('customers.index', compact('customers'));
     }
 
-    public function destroy($customerId)
+    public function unsubscribe()
     {
-        $customer = Customer::findOrFail($customerId);
+        return view('customers.unsubscribe');
+    }
+
+    public function destroy(Request $request)
+    {
+        $email = $request->input('email');
+        $customer = Customer::where('email', $email)->first();
+        if (empty($customer))
+        {
+            Session::flash('Error', 'This email is not on our subscriber list');
+            return back();
+        }
         $customer->delete();
+        Session::flash('Message', 'You have succesfully unsubscribed from our newsletter.');
+
+        return redirect('/');
     }
 }

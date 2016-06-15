@@ -3,7 +3,7 @@
 @section('content')
     <div class="base__header">
         <h2 class="base__title">About us</h2>
-        <a href="/customer/create" class="base__button">Newsletter</a>
+        <a href="/customer/create" class="base__button pjax">Newsletter</a>
     </div>
     <div class="featured__container">
         <div class="featured__col">

@@ -7,7 +7,7 @@
 </div>
 <div class="productIndex__container">
     @foreach ($products as $product)
-        <a href="{{ action('ProductController@show', $product->id) }}" class="productIndex__item">
+        <a href="{{ action('ProductController@show', $product->id) }}" class="productIndex__item pjax">
             <img src="{{asset('/images/' . $product->thumbnail)}}" alt="" />
             <h3 class="base__title">{{$product->name}}</h3>
             <h4 class="base__title">&#8364; {{$product->price}}</h4>

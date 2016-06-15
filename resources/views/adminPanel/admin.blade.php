@@ -23,15 +23,32 @@
     </header>
     <section class="adminPanel__container">
         <section class="adminPanel__nav">
-            <a href="{{ action('ProductController@adminIndex') }}" class="adminPanel__nav--item"><i class="material-icons">shopping_basket</i> <span>Producten</span></a>
-            <a href="{{ action('CustomerController@index') }}" class="adminPanel__nav--item"><i class="material-icons">person</i> <span>Klanten</span></a>
-            <a href="#" class="adminPanel__nav--item"><i class="material-icons">question_answer</i><span>F.A.Q</span></a>
+            <a href="{{ action('ProductController@adminIndex') }}" class="adminPanel__nav--item pjax"><i class="material-icons">shopping_basket</i> <span>Producten</span></a>
+            <a href="{{ action('CustomerController@index') }}" class="adminPanel__nav--item pjax"><i class="material-icons">person</i> <span>Klanten</span></a>
+            <a href="{{ action('QuestionController@adminIndex') }}" class="adminPanel__nav--item pjax"><i class="material-icons">question_answer</i><span>F.A.Q</span></a>
         </section>
-        <section class="adminPanel__content">
+        <section class="adminPanel__content pjax-content">
             @yield('content')
+            @if (Session::has('Message'))
+                <script type="text/javascript">
+                    ohSnap('{!! Session::get('Message') !!}', {'color':'green', 'duration':'2000'});
+                </script>
+            @endif
+            @if (Session::has('Error'))
+                <script type="text/javascript">
+                    ohSnap('{!! Session::get('Error') !!}', {'color':'red', 'duration':'2000'});
+                </script>
+            @endif
         </section>
     </section>
+    {{-- Javascript includes --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.6/jquery.pjax.js"></script>
+    <script src="{{asset('js/ohsnap.js')}}"></script>
+    <script src="{{asset('js/smoothboard.js')}}"></script>
+    <script type="text/javascript">
+        $(document).pjax('.pjax', '.pjax-content');
+    </script>
     @yield('footer')
     <script id="__bs_script__">//<![CDATA[
         document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.12.12.js'><\/script>".replace("HOST", location.hostname));

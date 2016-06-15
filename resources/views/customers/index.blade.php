@@ -22,30 +22,11 @@
                 <span class="child">{{ $customer->country }}</span>
                 <span class="child">{{ $customer->gender }}</span>
                 <div class="detailedList__item--buttons">
-                    <a href="javascript:checkDelete({{$customer->id}})" class="material-icons">delete</a>
+                    <a href="javascript:checkDelete('/customer/',{{$customer->id}})" class="material-icons">delete</a>
                 </div>
             </div>
         @endforeach
     </div>
 @stop
 @section('footer')
-    <script type="text/javascript">
-        function checkDelete(id)
-        {
-            if (confirm('Are you sure you want to remove this customer?'))
-            {
-                $.ajax({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    type: 'DELETE',
-                    url: '/customer/' + id,
-                    success: function(result)
-                    {
-                        location.reload();
-                    }
-                });
-            }
-        }
-    </script>
 @stop

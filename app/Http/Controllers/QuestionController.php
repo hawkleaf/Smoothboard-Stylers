@@ -26,7 +26,7 @@ class QuestionController extends Controller
 
         $question->save();
 
-        return redirect('QuestionController@adminIndex');
+        return redirect('/admin/question/index');
     }
 
     public function edit($questionId)
@@ -44,7 +44,7 @@ class QuestionController extends Controller
 
         $question->save();
 
-        return redirect(action('QuestionController@adminIndex'));
+        return redirect('/admin/question/index');
     }
 
     public function index()

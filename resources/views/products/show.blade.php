@@ -13,7 +13,7 @@
         </div>
         <div class="productShow__col">
             <h3 class="base__title">Price: &#8364; {{$product->price}}</h3>
-            <a href="/appointment/{{$product->id}}" class="base__button">Contact us</a>
+            <a href="/appointment/{{$product->id}}" class="base__button pjax">Contact us</a>
         </div>
     </div>
 @stop
