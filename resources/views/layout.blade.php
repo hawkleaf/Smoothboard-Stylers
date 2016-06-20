@@ -31,16 +31,7 @@
     </header>
     <div class="main__content pjax-content">
         @yield('content')
-        @if (Session::has('Message'))
-            <script type="text/javascript">
-                ohSnap('{!! Session::get('Message') !!}', {'color':'green', 'duration':'2000'});
-            </script>
-        @endif
-        @if (Session::has('Error'))
-            <script type="text/javascript">
-                ohSnap('{!! Session::get('Error') !!}', {'color':'red', 'duration':'2000'});
-            </script>
-        @endif
+        @include('components.messages')
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.6/jquery.pjax.js"></script>
     <script src="{{asset('js/smoothboard.js')}}"></script>

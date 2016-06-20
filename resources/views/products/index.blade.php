@@ -3,7 +3,6 @@
 @section('content')
 <div class="base__header">
     <h2 class="base__title">Onze producten:</h2>
-    <input type="text" name="search" value="" placeholder="Search...">
 </div>
 <div class="productIndex__container">
     @foreach ($products as $product)

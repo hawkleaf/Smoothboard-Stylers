@@ -28,6 +28,7 @@ class CustomerController extends Controller
         $customer->country = $request->input('country');
         $customer->email = $request->input('email');
         $customer->save();
+        Session::flash('Message','You are now subscribed' . $customer->firstname . '!');
 
         return redirect('/');
     }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Product;
+use Session;
 
 class AppointmentController extends Controller
 {
@@ -19,7 +20,7 @@ class AppointmentController extends Controller
     public function getForm(Request $request, $productId)
     {
         //Send mail
-        dd($request->input('name'), $request->input('email'));
+        Session::flash('Message','Thank you for your interest, we will contact you very soon!');
 
         return redirect('/');
     }

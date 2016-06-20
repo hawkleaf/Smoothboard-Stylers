@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Question;
 use App\Http\Requests;
+use Session;
 
 class QuestionController extends Controller
 {
@@ -25,6 +26,7 @@ class QuestionController extends Controller
         $question->answer = $request->input('answer');
 
         $question->save();
+        Session::flash('Message','Question added');
 
         return redirect('/admin/question/index');
     }
@@ -43,6 +45,7 @@ class QuestionController extends Controller
         $question->answer = $request->input('answer');
 
         $question->save();
+        Session::flash('Message','Changes applied');
 
         return redirect('/admin/question/index');
     }
@@ -65,5 +68,6 @@ class QuestionController extends Controller
     {
         $question = Question::findOrFail($questionId);
         $question->delete();
+        Session::flash('Message','Question deleted');
     }
 }

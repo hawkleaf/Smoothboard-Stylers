@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Product;
+use Validator;
+use Session;
 
 class ProductController extends Controller
 {
@@ -21,11 +22,15 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required|max:50',
+            'description' => 'required',
+            'price' => 'required|digits_between:0,99999'
+        ]);
         $product = new Product;
         $product->name = $request->input('name');
         $product->description = $request->input('description');
         $product->price = $request->input('price');
-        $product->available = true;
 
         if ($request->hasFile('thumbnail'))
         {
@@ -35,6 +40,7 @@ class ProductController extends Controller
             $product->thumbnail = $name;
         }
         $product->save();
+        Session::flash('Message','Product added');
 
         return redirect('/admin/product/index');
     }
@@ -61,6 +67,7 @@ class ProductController extends Controller
         $product->description = $request->input('description');
         $product->price = $request->input('price');
         $product->save();
+        Session::flash('Message','Changes saved');
 
         return redirect(action('ProductController@adminIndex'));
     }
@@ -90,5 +97,6 @@ class ProductController extends Controller
         $product = Product::find($productId);
         unlink(public_path() . '/images/' . $product->thumbnail);
         $product->delete();
+        Session::flash('Message','Product Deleted');
     }
 }

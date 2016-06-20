@@ -11,9 +11,12 @@
         <!-- Third party styles -->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="{{asset('js/ohsnap.js')}}"></script>
 	@yield('header')
 </head>
 <body>
+    <div id="ohsnap"></div>
     <header class="adminPanel__header">
         <h1 class="base__title">Admin Panel</h1>
         <div class="adminPanel__header--buttons">
@@ -23,22 +26,13 @@
     </header>
     <section class="adminPanel__container">
         <section class="adminPanel__nav">
-            <a href="{{ action('ProductController@adminIndex') }}" class="adminPanel__nav--item pjax"><i class="material-icons">shopping_basket</i> <span>Producten</span></a>
-            <a href="{{ action('CustomerController@index') }}" class="adminPanel__nav--item pjax"><i class="material-icons">person</i> <span>Klanten</span></a>
+            <a href="{{ action('ProductController@adminIndex') }}" class="adminPanel__nav--item pjax"><i class="material-icons">shopping_basket</i> <span>Products</span></a>
+            <a href="{{ action('CustomerController@index') }}" class="adminPanel__nav--item pjax"><i class="material-icons">person</i> <span>Customers</span></a>
             <a href="{{ action('QuestionController@adminIndex') }}" class="adminPanel__nav--item pjax"><i class="material-icons">question_answer</i><span>F.A.Q</span></a>
         </section>
         <section class="adminPanel__content pjax-content">
             @yield('content')
-            @if (Session::has('Message'))
-                <script type="text/javascript">
-                    ohSnap('{!! Session::get('Message') !!}', {'color':'green', 'duration':'2000'});
-                </script>
-            @endif
-            @if (Session::has('Error'))
-                <script type="text/javascript">
-                    ohSnap('{!! Session::get('Error') !!}', {'color':'red', 'duration':'2000'});
-                </script>
-            @endif
+            @include('components.messages')
         </section>
     </section>
     {{-- Javascript includes --}}
