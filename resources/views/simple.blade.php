@@ -14,29 +14,32 @@
     <script src="{{asset('js/ohsnap.js')}}"></script>
 	@yield('header')
 </head>
-<body class="main">
+<body>
     <div id="ohsnap"></div>
-    <header class="main__header">
-        <a class="main__title" href="/">
+    <header class="simple__header">
+        <a class="simple__title" href="/">
             <span class="material-icons">toys</span>
             <h2 class="base__title">Smoothboard Stylers</h2>
         </a>
-        <ul class="main__nav">
-            <li><a href="/" class="main__nav--item material-icons">home</a></li>
-            <li><a href="{{action('ProductController@index')}}" class="main__nav--item pjax">Our products</a></li>
-            <li><a href="/question" class="main__nav--item pjax">F.A.Q</a></li>
-            <li><a href="/contact" class="main__nav--item pjax">Contact</a></li>
+        <ul class="simple__nav">
+            <a href="{{action('ProductController@index')}}" class="simple__nav--item pjax"><span class="content">Products</span></a>
+            <a href="/question" class="simple__nav--item pjax"><span class="content">F.A.Q</span></a>
+            <a href="/contact" class="simple__nav--item pjax"><span class="content">Contact</span></a>
         </ul>
     </header>
-    <div class="main__content pjax-content">
+    <section class="simple__art">
+        <div class="simple__art--container">
+            <h1 class="simple__art--title">"Spicin' up your board!"</h1>
+        </div>
+
+        <a class="simple__art--button material-icons" href="javascript:scrollDiv('.simple__content')">keyboard_arrow_down</a>
+    </section>
+    <div class="simple__content pjax-content">
         @yield('content')
         @include('components.messages')
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.9.6/jquery.pjax.js"></script>
     <script src="{{asset('js/smoothboard.js')}}"></script>
-    <script type="text/javascript">
-        $(document).pjax('.pjax', '.pjax-content');
-    </script>
     @yield('footer')
     <script id="__bs_script__">//<![CDATA[
         document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.12.12.js'><\/script>".replace("HOST", location.hostname));

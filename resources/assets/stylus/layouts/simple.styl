@@ -1,0 +1,58 @@
+.simple__header
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: 100%
+    padding-left: 15%
+    padding-right: 15%
+    position: fixed
+    background-color: white
+    transition: all ease-in-out .5s
+
+.simple__nav
+    display: flex
+    align-items: center
+    &--item
+        padding: 10px 20px
+        transition: all ease-in-out .3s
+    &--item:hover
+        .content
+            border-bottom: 2px solid black
+
+.simple__title
+    display: flex
+    align-items: center
+
+.simple__art
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    min-height: 100vh
+    padding-top: 52px
+    background: url(/../image/wave.jpg) no-repeat center center
+    background-size: cover
+    &--container
+        flex: 1
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+    &--title
+        border: 3px solid white
+        background-color: rgba(255, 255, 255, 0.6)
+        padding: 10px 20px
+    &--button
+        font-size: 50px !important
+        color: white
+    &--button:hover
+        cursor: pointer
+
+.simple__content
+    box-shadow: -2px 0px 5px 0px black
+    min-height: 100vh
+    padding-top: 52px
+
+.transparency
+    background-color: rgba(255, 255, 255, 0.6)
+    box-shadow: -2px 0px 5px 0px black

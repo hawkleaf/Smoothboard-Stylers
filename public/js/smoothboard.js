@@ -20,3 +20,19 @@ $(document).on('submit','.pjax-form', function(event) {
     $.pjax.submit(event, '.pjax-content');
 
 });
+// Dynamic Scrollbar
+
+$(window).scroll(function() {
+    var header = $('.simple__header');
+    if ($(window).scrollTop() > 5 ) {
+        header.addClass("transparency");
+    } else {
+        header.removeClass("transparency");
+    }
+});
+function scrollDiv(destination)
+{
+    $('html, body').animate({
+        scrollTop: $($(destination)).offset().top
+    }, 500);
+};

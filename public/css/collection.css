@@ -20,10 +20,6 @@ body {
   min-height: 100vh;
   font-family: 'Droid Serif', serif;
 }
-.main {
-  background: url("/../image/wave.jpg") no-repeat center center fixed;
-  background-size: cover;
-}
 h1,
 h2,
 h3,
@@ -83,6 +79,10 @@ h4 {
   -ms-flex-align: center;
   align-items: center;
 }
+.base__icon:hover {
+  transition: all ease-in-out 0.3s;
+  color: #757575;
+}
 .alert {
   padding: 15px;
   margin-bottom: 20px;
@@ -118,53 +118,40 @@ h4 {
 }
 /*Layouts*/
 .main__header {
-  background-color: rgba(230,230,230,0.7);
   display: -ms-flexbox;
   display: flex;
   -ms-flex-align: center;
   align-items: center;
-  padding-left: 10%;
-  padding-right: 10%;
-  border-bottom: 1px solid #808080;
-}
-.main__logo {
-  height: 100px;
-  width: 100px;
-}
-.main__title {
-  margin-left: auto;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 15%;
+  padding-right: 15%;
+  position: fixed;
 }
 .main__nav {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: center;
-  justify-content: center;
   -ms-flex-align: center;
   align-items: center;
-  margin-left: auto;
 }
-.main__nav--item {
-  font-weight: bold;
-  display: block;
-  padding: 20px 30px;
-  transition: all ease-in-out 0.3s;
-}
-.main__nav--item a {
-  display: block;
-  color: inherit;
-}
-.main__nav--item:hover {
-  color: #e3a95a;
-}
-.main__content {
+.main__title {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-width: 100%;
-  padding: 2em;
-  -ms-flex: 1;
-  flex: 1;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.main__content {
+  height: 1600px;
+  padding-top: 52px;
+  padding-bottom: 66px;
+}
+.transparency {
+  background-color: rgba(255,255,255,0.6);
+}
+.home-background {
+  background: url("/../image/wave.jpg") no-repeat center center fixed;
+  background-size: cover;
 }
 .adminPanel__header {
   display: -ms-flexbox;
@@ -237,6 +224,86 @@ h4 {
   flex: 5;
   box-shadow: -2px 0px 5px 0px #000;
 }
+.simple__header {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 15%;
+  padding-right: 15%;
+  position: fixed;
+  background-color: #fff;
+  transition: all ease-in-out 0.5s;
+}
+.simple__nav {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.simple__nav--item {
+  padding: 10px 20px;
+  transition: all ease-in-out 0.3s;
+}
+.simple__nav--item:hover .content {
+  border-bottom: 2px solid #000;
+}
+.simple__title {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.simple__art {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 52px;
+  background: url("/../image/wave.jpg") no-repeat center center;
+  background-size: cover;
+}
+.simple__art--container {
+  -ms-flex: 1;
+  flex: 1;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.simple__art--title {
+  border: 3px solid #fff;
+  background-color: rgba(255,255,255,0.6);
+  padding: 10px 20px;
+}
+.simple__art--button {
+  font-size: 50px !important;
+  color: #fff;
+}
+.simple__art--button:hover {
+  cursor: pointer;
+}
+.simple__content {
+  box-shadow: -2px 0px 5px 0px #000;
+  min-height: 100vh;
+  padding-top: 52px;
+}
+.transparency {
+  background-color: rgba(255,255,255,0.6);
+  box-shadow: -2px 0px 5px 0px #000;
+}
 /*Components*/
 .featured__container {
   display: -ms-flexbox;
@@ -246,8 +313,8 @@ h4 {
   width: 100%;
   -ms-flex-pack: distribute;
   justify-content: space-around;
-  -ms-flex-align: start;
-  align-items: flex-start;
+  -ms-flex: 1;
+  flex: 1;
 }
 .featured__col {
   background-color: rgba(230,230,230,0.7);
@@ -256,8 +323,6 @@ h4 {
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
-  border: 4px solid #fff;
-  height: 70%;
   padding: 0.5em;
   margin: 0.5em;
   -ms-flex: 1;
@@ -267,6 +332,30 @@ h4 {
   text-align: center;
 }
 .featured__col .material-icons {
+  -ms-flex-item-align: center;
+  align-self: center;
+  font-size: 150px;
+}
+.featured__row {
+  background-color: rgba(230,230,230,0.7);
+  border: 4px solid #fff;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  padding: 0.5em;
+  margin: 0.5em;
+  -ms-flex: 1;
+  flex: 1;
+}
+.featured__row .base__title {
+  text-align: center;
+}
+.featured__row .material-icons {
   -ms-flex-item-align: center;
   align-self: center;
   font-size: 150px;
